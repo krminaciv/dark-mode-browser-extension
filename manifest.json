@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Dark Mood",
+    "version": "1.0",
+    "description": "Extension that converts web pages to dark mode",
+    "icons": {
+      "48": "icons/icon.png"
+    },
+    "permissions": [
+      "activeTab",
+      "storage",
+      "tabs",
+      "<all_urls>"
+    ],
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_start",
+        "all_frames": true
+      }
+    ],
+    "browser_action": {
+      "default_icon": "icons/icon.png",
+      "default_title": "Dark Mood",
+      "default_popup": "popup/popup.html"
+    }
+  }
